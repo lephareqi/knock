@@ -106,31 +106,37 @@ const esc=t=>{const d=document.createElement('div');d.textContent=t;return d.inn
 (function(){
 const canvas=q('#traceCanvas');
 const ctx=canvas.getContext('2d');
-let nodes=[],edges=[];
+let nodes={},edges=[];
 const resize=()=>{canvas.width=canvas.parentElement.clientWidth;canvas.height=360};
 window.addEventListener('resize',resize);resize();
 const draw=()=>{
 ctx.clearRect(0,0,canvas.width,canvas.height);
 edges.forEach(e=>{
-const a=nodes.find(n=>n.id===e.from),b=nodes.find(n=>n.id===e.to);
+const a=nodes[e.from],b=nodes[e.to];
 if(!a||!b)return;
 ctx.strokeStyle='rgba(17,17,17,0.35)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
 });
-nodes.forEach(n=>{
-ctx.fillStyle=n.hub?'#E4003A':'#111';ctx.beginPath();ctx.arc(n.x,n.y,6+n.w*2,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#fff';ctx.font='11px monospace';ctx.textAlign='center';ctx.fillText(n.id.slice(0,6),n.x,n.y+9);
+Object.keys(nodes).forEach(id=>{
+const n=nodes[id];
+ctx.fillStyle=n.hub?'#E4003A':'#111';ctx.beginPath();ctx.arc(n.x,n.y,6+n.w*2,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#fff';ctx.font='11px monospace';ctx.textAlign='center';ctx.fillText(id.slice(0,6),n.x,n.y+9);
 });
 requestAnimationFrame(draw);
 };
-const varR=()=>'var(--r)';
 draw();
+let es=null;
 on(q('#btnTrace'),'click',()=>{
 const a=q('#addr').value.trim();
 if(!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(a)){q('#traceStatus').textContent='Invalid Base58 address';return}
-q('#traceStatus').textContent='tracing...';
-fetch(`${CFG.API}/api/stream?addr=${encodeURIComponent(a)}&limit=50`).then(r=>r.text()).then(t=>{
-q('#traceOut').textContent=t.slice(0,2000);
-try{const d=JSON.parse(t);nodes=(d.nodes||[]).map((n,i)=>({id:n.id,x:Math.random()*canvas.width,y:Math.random()*canvas.height,w:n.w||1,hub:n.hub||0}));edges=(d.edges||[]).map(e=>({from:e.from,to:e.to}));}catch(e){q('#traceStatus').textContent='trace done (raw above)'} 
-}).catch(()=>{q('#traceStatus').textContent='backend unreachable (is SoXo on :3000?)'});
+if(es){es.close();es=null}
+nodes={};edges=[];q('#traceOut').textContent='';q('#traceStatus').textContent='tracing...';
+es=new EventSource(`${CFG.API}/api/stream?addr=${encodeURIComponent(a)}&limit=50`);
+es.onmessage=ev=>{
+try{const d=JSON.parse(ev.data);if(d.error){q('#traceOut').textContent+=d.error+'\n';return}
+if(d.edges){d.edges.forEach(e=>{edges.push(e);if(!nodes[e.from]){nodes[e.from]={id:e.from,x:Math.random()*canvas.width,y:Math.random()*canvas.height,w:1,hub:0}}if(!nodes[e.to]){nodes[e.to]={id:e.to,x:Math.random()*canvas.width,y:Math.random()*canvas.height,w:1,hub:0}}nodes[e.from].w++;nodes[e.to].w++;}})}
+q('#traceOut').textContent+=JSON.stringify(d).slice(0,200)+'\n';
+}catch(e){}
+};
+es.onerror=()=>{es.close();es=null;q('#traceStatus').textContent='trace stream ended';};
 });
 })();
 
