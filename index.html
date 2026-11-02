@@ -50,6 +50,9 @@ ol{list-style:none;padding:0;display:grid;gap:14px;font-size:21px}
 li{background:#fff;border:4px solid var(--k);border-radius:14px;padding:18px 22px}
 footer{background:var(--k);color:var(--c);text-align:center;padding:40px 6vw 56px;line-height:1.6}
 footer a{color:var(--y)}
+.secret-door{display:inline-flex;align-items:center;justify-content:center;width:34px;height:40px;margin-top:8px;color:var(--y);opacity:.62;vertical-align:middle}
+.secret-door:hover{color:var(--y);opacity:1;transform:translateY(-2px)}
+.secret-door svg{display:block;width:24px;height:30px}
 </style>
 </head>
 <body>
@@ -132,7 +135,10 @@ footer a{color:var(--y)}
 <footer>
 <div class="an" style="font-size:32px;color:var(--y);margin-bottom:12px">$KNOCK</div>
 <p style="max-width:760px;margin:0 auto 16px">$KNOCK is a meme token with no intrinsic value and no promise of returns. This page is entertainment, not financial advice. Prices can drop to zero. Only spend what you can afford to lose.</p>
-<p><a href="https://x.com/knockcat" target="_blank" rel="noreferrer">X / Twitter</a> &nbsp; <a href="https://dexscreener.com/solana/" target="_blank" rel="noreferrer">Chart</a></p>
+<p><a href="https://x.com/knockcat" target="_blank" rel="noreferrer">X / Twitter</a> &nbsp; <a href="https://dexscreener.com/solana/" target="_blank" rel="noreferrer">Chart</a> &nbsp; <a href="http://localhost:3000" target="_blank" rel="noreferrer">SoXo</a></p>
+<a class="secret-door" href="launchpad.html" aria-label="A tiny door. If you found it, welcome in. Don't tell the others." title="A tiny door" >
+<svg viewBox="0 0 24 30" aria-hidden="true" focusable="false"><path d="M3 28V4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v24M1 28h22M7 28V6h12v22M15.5 17h.1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
 </footer>
 
 <script>
