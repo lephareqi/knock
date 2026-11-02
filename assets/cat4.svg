@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#FFE94A"/>
+<ellipse cx="200" cy="470" rx="130" ry="90" fill="#F2F2F2"/><ellipse cx="200" cy="480" rx="70" ry="70" fill="#fff"/>
+<polygon points="95,200 105,95 185,140" fill="#F2F2F2"/><polygon points="305,200 295,95 215,140" fill="#F2F2F2"/><polygon points="112,170 116,120 160,145" fill="#FF9EC4"/><polygon points="288,170 284,120 240,145" fill="#FF9EC4"/>
+<circle cx="200" cy="240" r="120" fill="#F2F2F2"/><ellipse cx="200" cy="290" rx="55" ry="40" fill="#fff"/>
+<circle cx="160" cy="230" r="26" fill="#fff"/><circle cx="240" cy="230" r="26" fill="#fff"/><circle cx="144" cy="236" r="11" fill="#111"/><circle cx="224" cy="236" r="11" fill="#111"/><rect x="132" y="204" width="56" height="16" fill="#F2F2F2"/><rect x="212" y="204" width="56" height="16" fill="#F2F2F2"/><polygon points="188,270 212,270 200,284" fill="#FF6FA3"/><path d="M185 292 Q200 302 200 292 Q200 302 215 292" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+<path d="M70 270 L145 280 M70 300 L145 292 M330 270 L255 280 M330 300 L255 292" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>

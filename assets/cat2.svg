@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#FFD6E7"/>
+<ellipse cx="200" cy="470" rx="130" ry="90" fill="#9AA0A6"/><ellipse cx="200" cy="480" rx="70" ry="70" fill="#E8EAED"/>
+<polygon points="95,200 105,95 185,140" fill="#9AA0A6"/><polygon points="305,200 295,95 215,140" fill="#9AA0A6"/><polygon points="112,170 116,120 160,145" fill="#FF9EC4"/><polygon points="288,170 284,120 240,145" fill="#FF9EC4"/>
+<circle cx="200" cy="240" r="120" fill="#9AA0A6"/><ellipse cx="200" cy="290" rx="55" ry="40" fill="#E8EAED"/>
+<circle cx="160" cy="230" r="26" fill="#fff"/><circle cx="240" cy="230" r="26" fill="#fff"/><circle cx="174" cy="232" r="11" fill="#111"/><circle cx="254" cy="232" r="11" fill="#111"/><polygon points="188,270 212,270 200,284" fill="#FF6FA3"/><path d="M185 292 Q200 302 200 292 Q200 302 215 292" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+<path d="M70 270 L145 280 M70 300 L145 292 M330 270 L255 280 M330 300 L255 292" stroke="#fff" stroke-width="4" stroke-linecap="round"/><rect x="290" y="400" width="60" height="70" rx="8" fill="#fff" stroke="#111" stroke-width="5"/><path d="M350 415 q28 12 0 40" fill="none" stroke="#111" stroke-width="5"/><ellipse cx="260" cy="430" rx="30" ry="22" fill="#FFB84D" stroke="#111" stroke-width="4"/></svg>

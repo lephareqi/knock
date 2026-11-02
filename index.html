@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$KNOCK - if it's on the table, it gets knocked off</title>
+<meta name="description" content="$KNOCK: the meme coin where a cat pushes everything off the table.">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFE94A;--r:#E4003A;--k:#111;--c:#FFFDF2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--c);color:var(--k);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden}
+a{color:var(--k)}a:hover{color:var(--r)}
+h1,h2,.an{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase}
+h2{font-size:clamp(44px,7vw,84px);margin:0 0 28px}
+section{padding:72px 6vw;max-width:1200px;margin:0 auto}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:18px 6vw;background:var(--y);border-bottom:4px solid var(--k)}
+nav{display:flex;flex-wrap:wrap;gap:22px;align-items:center;font-weight:700}
+.btn{display:inline-block;background:var(--r);color:#fff;font:700 20px 'Space Grotesk',sans-serif;padding:16px 34px;border-radius:999px;border:4px solid var(--k);box-shadow:6px 6px 0 var(--k);text-decoration:none;cursor:pointer;min-height:48px}
+.btn:hover{color:#fff;transform:translate(2px,2px);box-shadow:4px 4px 0 var(--k)}
+.btn.d{background:var(--k);color:var(--y);padding:12px 22px;box-shadow:none}
+.btn.d:hover{color:var(--y)}
+.tick{background:var(--k);color:var(--y);overflow:hidden;padding:14px 0;transform:rotate(-1.5deg);margin:24px -2vw}
+.trk{display:flex;width:max-content;animation:sc 26s linear infinite;font:30px Anton,Impact,sans-serif;text-transform:uppercase;white-space:nowrap}
+.trk span{padding-right:40px}
+@keyframes sc{to{transform:translateX(-50%)}}
+.ca{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;max-width:720px;margin:28px auto 0;background:#fff;border:3px dashed var(--k);border-radius:12px;padding:12px 16px}
+.ca code{word-break:break-all}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.fr{position:relative;margin:0;aspect-ratio:4/5;background:#1B1B1B;border:4px solid var(--k);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:8px 8px 0 var(--k)}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.knock-card{margin:0;background:#fff;border:4px solid var(--k);border-radius:16px;overflow:hidden;box-shadow:8px 8px 0 var(--k)}
+.knock-card img{display:block;width:100%;height:auto}
+.knock-card figcaption{padding:16px 18px;font-size:18px;font-weight:700;line-height:1.45}
+.ph{color:var(--y);font-weight:700;text-align:center;border:4px dashed var(--y);padding:24px;border-radius:12px;margin:24px}
+.cap{position:absolute;left:10px;right:10px;text-align:center;font:clamp(22px,3vw,30px)/1.1 Anton,Impact,sans-serif;text-transform:uppercase;color:#fff;text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000}
+.cap.t{top:12px}.cap.b{bottom:12px}
+.card{background:#fff;border:4px solid var(--k);border-radius:16px;padding:26px;box-shadow:8px 8px 0 var(--k)}
+.card .an{font-size:40px;color:var(--r)}
+.y{background:var(--y);border-top:4px solid var(--k);border-bottom:4px solid var(--k)}
+.stp{background:var(--y)}.stp .an{font-size:56px;color:var(--k)}
+.tbl{position:relative;height:220px;border-bottom:16px solid #7A4A1E;display:flex;align-items:flex-end;justify-content:center;gap:16px;flex-wrap:wrap;background:linear-gradient(#fff,#fff0a8);border:4px solid var(--k);border-radius:16px;padding:0 16px 24px;overflow:hidden}
+.it{font:700 18px 'Space Grotesk',sans-serif;background:var(--r);color:#fff;border:3px solid var(--k);border-radius:10px;padding:12px 16px;cursor:pointer;transition:transform 1s cubic-bezier(.5,0,1,.6),opacity 1s;min-height:48px}
+.it.fall{transform:translateY(420px) rotate(80deg);opacity:0;pointer-events:none}
+input{font:700 22px 'Space Grotesk',sans-serif;border:4px solid var(--k);border-radius:12px;padding:12px;width:180px}
+details{background:#fff;border:4px solid var(--k);border-radius:14px;padding:18px 22px;margin-bottom:14px}
+summary{font-weight:700;font-size:20px;cursor:pointer}
+details p{margin:12px 0 0;line-height:1.5}
+ol{list-style:none;padding:0;display:grid;gap:14px;font-size:21px}
+li{background:#fff;border:4px solid var(--k);border-radius:14px;padding:18px 22px}
+footer{background:var(--k);color:var(--c);text-align:center;padding:40px 6vw 56px;line-height:1.6}
+footer a{color:var(--y)}
+</style>
+</head>
+<body>
+<header>
+<div style="display:flex;align-items:center;gap:14px;">
+<img src="logo.png" alt="$KNOCK cat logo" style="width:56px;height:56px;display:block;border-radius:18px;border:3px solid #111;box-shadow:4px 4px 0 #111;background:#fff;object-fit:cover;">
+<div class="an" style="font-size:36px">$KNOCK</div>
+</div>
+<nav><a href="#play">Play</a><a href="#memes">Evidence</a><a href="#tokenomics">Tokenomics</a><a href="#faq">FAQ</a><a class="btn d" href="#buy">Buy $KNOCK</a></nav>
+</header>
+
+<section style="text-align:center;padding-top:64px">
+<img src="logo.png" alt="$KNOCK logo" style="display:block;width:min(280px,60vw);margin:0 auto 20px;border-radius:28px;border:4px solid #111;box-shadow:10px 10px 0 #111;background:#fff;object-fit:cover;">
+<h1 style="font-size:clamp(56px,10vw,140px);line-height:.95;margin:0 0 24px">If it is on the table, <span style="color:var(--r)">it gets knocked off.</span></h1>
+<p id="sub" style="font-size:24px;line-height:1.5;margin:0 auto 32px;max-width:760px">$KNOCK is the memecoin nobody asked for and the cat does not care. One cat. One rule. One very slow paw.</p>
+<a class="btn" href="#buy">Watch it fall</a>
+<div class="ca"><code id="ca">[PASTE CONTRACT ADDRESS HERE]</code><button class="btn d" id="cp">Copy CA</button></div>
+</section>
+
+<div class="tick"><div class="trk"><span>IF IT'S ON THE TABLE, IT GETS KNOCKED OFF * NUMBER GO DOWN? CAT NOT SURPRISED * ZERO UTILITY, FULL ATTITUDE * NOT FINANCIAL ADVICE, JUST A STARE * </span><span>IF IT'S ON THE TABLE, IT GETS KNOCKED OFF * NUMBER GO DOWN? CAT NOT SURPRISED * ZERO UTILITY, FULL ATTITUDE * NOT FINANCIAL ADVICE, JUST A STARE * </span></div></div>
+
+<section id="play" style="text-align:center">
+<h2>Knock the table</h2>
+<p style="font-size:20px;margin:0 0 24px">Click things. The cat approves.</p>
+<div class="tbl" id="tbl">
+<button class="it">cup</button><button class="it">your wallet</button><button class="it">phone</button><button class="it">the chart</button><button class="it">your savings</button>
+</div>
+<p class="an" style="font-size:36px;margin:20px 0 8px">Items knocked: <span id="n">0</span></p>
+<p id="msg" style="font-size:20px;margin:0 0 16px">The cat is watching. Do not blink.</p>
+<button class="btn d" id="rs">Put it all back</button>
+</section>
+
+<section id="memes">
+<h2>The Knock Cats</h2>
+<p style="font-size:20px;line-height:1.5;margin:-12px 0 28px">Five portraits. One shared brain cell. Absolutely no respect for closed doors or table edges.</p>
+<div class="grid">
+<figure class="knock-card"><img src="1.bmp" alt="Knock Cat in sunglasses and a hoodie at sunset"><figcaption>He heard a cup wobble three rooms away. The mission begins.</figcaption></figure>
+<figure class="knock-card"><img src="2.bmp" alt="Knock Cat peeking around a doorway in sunglasses"><figcaption>POV: you said “no more treats” and he appears at the door.</figcaption></figure>
+<figure class="knock-card"><img src="3.bmp" alt="Knock Cat reclining in sunglasses and a gold chain"><figcaption>The chart is red. The cat is horizontal. The vibes remain immaculate.</figcaption></figure>
+<figure class="knock-card"><img src="4.bmp" alt="Knock Cat watching the moon from a city rooftop"><figcaption>Midnight patrol: monitoring every unsecured glass in the neighborhood.</figcaption></figure>
+<figure class="knock-card"><img src="5.bmp" alt="Knock Cat lounging like royalty in sunglasses and a gold chain"><figcaption>King of the couch. Bane of every cup within paw’s reach.</figcaption></figure>
+</div>
+</section>
+
+<section id="lore" style="max-width:1000px">
+<h2 style="color:var(--r)">The lore</h2>
+<p style="font-size:24px;line-height:1.6">Every trader has a cat who has pushed something off a desk while staring them dead in the eye. That is not an accident. That is a message.</p>
+<p style="font-size:24px;line-height:1.6">So we made it a coin. $KNOCK is for everyone who watched a glass hit the floor and thought: honestly, same.</p>
+</section>
+
+<section style="text-align:center;max-width:800px">
+<h2>The Cat-lculator</h2>
+<p style="font-size:20px">Enter how much you are investing, in dollars. The cat will respond.</p>
+<input id="amt" type="number" min="0" placeholder="100" aria-label="Amount in dollars"> <button class="btn d" id="go">Ask the cat</button>
+<p id="ans" style="font-family:Anton,Impact,sans-serif;font-size:32px;text-transform:uppercase;margin-top:24px;min-height:80px">&nbsp;</p>
+</section>
+
+<div class="y"><section id="tokenomics">
+<h2>Tokenomics</h2>
+<div class="grid">
+<div class="card"><div class="an">1B</div>Total supply. Plenty of glasses to knock over.</div>
+<div class="card"><div class="an" style="color:var(--k)">0% TAX</div>Buy and sell tax. The cat does not tax his friends.</div>
+<div class="card"><div class="an">LP BURNED</div>[Confirm before launch] Liquidity locked away for good.</div>
+<div class="card"><div class="an" style="color:var(--k)">NO MINT</div>[Confirm before launch] Mint authority revoked.</div>
+</div></section></div>
+
+<section id="buy">
+<h2>How to buy in 3 knocks</h2>
+<div class="grid">
+<div class="card stp"><div class="an">1</div><h3>Get a wallet</h3><p>Install a Solana wallet like Phantom. Keep your seed phrase on paper and never share it.</p></div>
+<div class="card stp"><div class="an">2</div><h3>Load some SOL</h3><p>Buy SOL on an exchange and send it to your wallet. Only use money you can afford to lose.</p></div>
+<div class="card stp"><div class="an">3</div><h3>Swap for $KNOCK</h3><p>Paste the official contract address into your swap and double-check it. Fake tokens are not funny.</p></div>
+</div>
+</section>
+
+<section id="roadmap" style="max-width:1000px"><h2 style="color:var(--r)">Roadmap (the cat disagrees)</h2><ol><li><b>Phase 1:</b> Stare at the chart. Blink slowly.</li><li><b>Phase 2:</b> Knock a cup off the table. Maintain eye contact.</li><li><b>Phase 3:</b> Knock a second cup off. Cat photo contest, winner gets bragging rights.</li><li><b>Phase 4:</b> Ignore the roadmap. Nap in a sunny spot.</li></ol></section>
+
+<section id="faq" style="max-width:900px"><h2>FAQ</h2><details><summary>Is $KNOCK a good investment?</summary><p>The cat has no opinion. It is a meme coin: no utility, no promises, and it can go to zero. Only spend what you can afford to lose.</p></details><details><summary>What is the utility?</summary><p>Gravity demonstration. Next question.</p></details><details><summary>When moon?</summary><p>The cat is on the moon already. He knocked the Earth off the table to get there.</p></details><details><summary>Who is the dev?</summary><p>A person with a cat and poor impulse control. Replace this answer before launch.</p></details><details><summary>Is it safe?</summary><p>Only trust the contract address on this page, never DMs. Real devs and real cats never ask for your seed phrase.</p></details></section>
+
+<footer>
+<div class="an" style="font-size:32px;color:var(--y);margin-bottom:12px">$KNOCK</div>
+<p style="max-width:760px;margin:0 auto 16px">$KNOCK is a meme token with no intrinsic value and no promise of returns. This page is entertainment, not financial advice. Prices can drop to zero. Only spend what you can afford to lose.</p>
+<p><a href="#">X / Twitter</a> &nbsp; <a href="#">Telegram</a> &nbsp; <a href="#">Chart</a></p>
+</footer>
+
+<script>
+var msgs=["The cat is watching. Do not blink.","Ooh, that one made a nice sound.","Eye contact maintained.","The cat has no regrets.","Gravity: confirmed.","He did it while staring at you."];
+var n=0,its=document.querySelectorAll('.it');
+its.forEach(function(b){b.addEventListener('click',function(){if(b.classList.contains('fall'))return;b.classList.add('fall');n++;document.getElementById('n').textContent=n;
+document.getElementById('msg').textContent=n===its.length?"Table cleared. The cat leaves without a word.":msgs[Math.floor(Math.random()*msgs.length)];});});
+document.getElementById('rs').addEventListener('click',function(){its.forEach(function(b){b.classList.remove('fall')});n=0;document.getElementById('n').textContent=0;document.getElementById('msg').textContent="The cat is watching. Do not blink.";});
+document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('ca').textContent,b=this;
+function ok(){b.textContent="Copied. Cat proud.";setTimeout(function(){b.textContent="Copy CA"},2000)}
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,ok)}else{ok()}});
+var ans=["The cat does not care, but wishes you well.","The cat will knock it off the table either way.","Cat says: only spend what you can afford to lose.","The cat blinked once. That means nothing.","Sir, this is a meme coin. The cat is not your financial advisor."];
+document.getElementById('go').addEventListener('click',function(){document.getElementById('ans').textContent=ans[Math.floor(Math.random()*ans.length)];});
+var subs=["$KNOCK is the memecoin nobody asked for and the cat does not care. One cat. One rule. One very slow paw.","Zero utility. Full attitude. Mild gravity.","Not financial advice. Just a cat, a cup, and a stare."],si=0;
+setInterval(function(){si=(si+1)%subs.length;document.getElementById('sub').textContent=subs[si];},5000);
+</script>
+</body>
+</html>
