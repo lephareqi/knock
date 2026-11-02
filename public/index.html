@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SoXo – Solana drainer tracer, larp check & battlefield</title><link rel="icon" href="logo.svg"><link rel="stylesheet" href="style.css"></head><body>
+<header><img src="logo.svg" alt="SoXo logo" width="44" height="44"><div><h1>SoXo</h1><p>Trace drainers. Check devs. Watch the market war.</p></div>
+<nav role="tablist"><button id="t-trace" class="on" role="tab">Drainer map</button><button id="t-larp" role="tab">Larp check</button><button id="t-war" role="tab">Battlefield</button></nav></header>
+<main>
+<section id="trace">
+<div class="bar"><input id="addr" placeholder="Paste a suspicious Solana wallet address" spellcheck="false" aria-label="Wallet address"><button id="go">Trace</button><button id="clr" class="ghost">Clear</button><button id="exp" class="ghost">Export JSON</button></div>
+<div class="bar small"><label>Transactions <input id="lim" type="number" min="5" max="100" value="25"></label><span id="stat" role="status">Idle</span></div>
+<div class="stage"><canvas id="g"></canvas><aside><h2>Suspects</h2><ol id="sus"><li class="muted">Nothing traced yet.</li></ol><p class="muted">Links appear live as the backend reads the chain. Click a suspect wallet to open it in Solscan, or use Trace to follow its funds. Click a map node to trace deeper. A wallet receiving from many different senders is flagged as a possible drainer hub. This is a signal, not proof.</p></aside></div>
+</section>
+<section id="larp" hidden>
+<div class="bar"><input id="lw" placeholder="Dev or deployer wallet (optional)" spellcheck="false" aria-label="Dev wallet"><input id="lg" placeholder="GitHub username (optional)" spellcheck="false" aria-label="GitHub username"><button id="lgo">Check dev</button></div>
+<div id="lout" class="card muted">Enter a wallet, a GitHub username, or both. SoXo checks wallet age, token launches, retained mint/freeze authority, holder concentration, and GitHub history.</div>
+</section>
+<section id="war" hidden>
+<div class="market-grid" aria-label="SOL market data" aria-live="polite">
+<article class="market-card"><span>SOL / USDT</span><b id="wp">—</b><small>Live price</small></article>
+<article class="market-card"><span>24H CHANGE</span><b id="wc24">—</b><small>Rolling 24 hours</small></article>
+<article class="market-card"><span>1H CHANGE</span><b id="wc1">—</b><small>Last 60 candles</small></article>
+<article class="market-card"><span>24H HIGH / LOW</span><b id="wrange">—</b><small>Daily price range</small></article>
+<article class="market-card"><span>24H VOLUME</span><b id="wvol">—</b><small id="wquotevol">—</small></article>
+</div>
+<div class="hud"><div class="side bull"><b id="bn">0</b><span>Bull force</span><small id="bv"></small></div><div class="meter"><i id="mb"></i></div><div class="side bear"><b id="rn">0</b><span>Bear force</span><small id="rv"></small></div></div>
+<div class="stage"><canvas id="w"></canvas></div>
+<p class="muted" id="wstat">Connecting to live market stream…</p>
+</section></main>
+<script src="app.js"></script></body></html>
