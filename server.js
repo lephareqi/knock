@@ -1,5 +1,7 @@
 'use strict';
 const http=require('http'),fs=require('fs'),path=require('path');
+function loadEnv(){try{const f=path.join(__dirname,'.env');const s=fs.readFileSync(f,'utf8');for(const line of s.split(/\r?\n/)){const m=line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);if(m)process.env[m[1]]===undefined&&(process.env[m[1]]=m[2].replace(/^["']|["']$/g,''))}}catch{};}
+loadEnv();
 const E=process.env;
 const CFG={port:+E.PORT||8080,rpc:E.RPC_URL||'https://api.mainnet-beta.solana.com',gh:E.GITHUB_TOKEN||'',ttl:(+E.CACHE_TTL||600)*1000,
   file:E.CACHE_FILE||path.join(__dirname,'data','cache.json'),jobs:+E.MAX_JOBS||3,queue:+E.MAX_QUEUE||15,heavyPerMin:+E.HEAVY_PER_MIN||8,
