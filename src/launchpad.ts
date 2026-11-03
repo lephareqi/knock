@@ -3,7 +3,7 @@ import {
   calculatePlatformFeeLamports,
   formatLamportsAsSol,
   parseSolToLamports,
-} from "./fees";
+} from "./fees.mjs";
 
 const MAINNET_RPC =
   import.meta.env.VITE_SOLANA_RPC_URL?.trim() || "https://api.mainnet-beta.solana.com";

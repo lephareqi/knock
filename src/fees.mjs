@@ -3,7 +3,7 @@ const PLATFORM_FEE_BPS = 50n;
 const BPS_DENOMINATOR = 10_000n;
 const MAX_SAFE_LAMPORTS = BigInt(Number.MAX_SAFE_INTEGER);
 
-export function parseSolToLamports(value: string): bigint {
+export function parseSolToLamports(value) {
   const normalized = value.trim();
   const match = /^(0|[1-9]\d*)(?:\.(\d{0,9}))?$/.exec(normalized);
 
@@ -21,7 +21,7 @@ export function parseSolToLamports(value: string): bigint {
   return lamports;
 }
 
-export function calculatePlatformFeeLamports(initialBuyLamports: bigint): bigint {
+export function calculatePlatformFeeLamports(initialBuyLamports) {
   if (initialBuyLamports < 0n) {
     throw new Error("Initial buy cannot be negative.");
   }
@@ -29,7 +29,7 @@ export function calculatePlatformFeeLamports(initialBuyLamports: bigint): bigint
   return (initialBuyLamports * PLATFORM_FEE_BPS) / BPS_DENOMINATOR;
 }
 
-export function formatLamportsAsSol(lamports: bigint): string {
+export function formatLamportsAsSol(lamports) {
   const whole = lamports / LAMPORTS_PER_SOL;
   const fraction = (lamports % LAMPORTS_PER_SOL).toString().padStart(9, "0");
   return `${whole}.${fraction} SOL`;

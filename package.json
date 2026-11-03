@@ -1,1 +1,29 @@
-{"name":"soxo","version":"1.2.0","private":true,"description":"Solana drainer tracer, larp dev check and live battlefield","main":"server.js","scripts":{"start":"node server.js","test":"node --test"},"engines":{"node":">=18"},"license":"MIT"}
+{
+  "name": "soxo",
+  "version": "1.2.0",
+  "private": true,
+  "description": "SoXo site and $KNOCK launchpad",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@pump-fun/pump-sdk": "4.1.0",
+    "@solana/spl-token": "0.4.13",
+    "@solana/web3.js": "1.98.4",
+    "bn.js": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.6",
+    "@types/node": "^22.15.30",
+    "typescript": "^5.9.3",
+    "vite": "8.3.5"
+  }
+}

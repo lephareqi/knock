@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/dist/assets/$1" },
+    { "src": "/knock-launchpad(.html)?", "dest": "/dist/knock-launchpad.html" },
+    { "src": "/(.*)", "dest": "/dist/index.html" }
+  ]
+}

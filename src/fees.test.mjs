@@ -4,7 +4,7 @@ import {
   calculatePlatformFeeLamports,
   formatLamportsAsSol,
   parseSolToLamports,
-} from "./fees.ts";
+} from "./fees.mjs";
 
 test("parses SOL decimals exactly into lamports", () => {
   assert.equal(parseSolToLamports("1.234567891"), 1_234_567_891n);
